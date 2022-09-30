@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+   <!-- <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script> -->
+
+
+
+    <title>OutsSystems</title>
+</head>
+<body> 
+   
+    <form>
+        <input class="form-control" type="datetime-local" placeholder="Seleccionar Fecha">
+    </form>    
+        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script> 
+        <script> flatpickr("input[type=datetime-local]", {}); </script>
+
+   
+</body>
+</html>
+
+
+<!--
+
+ 
+!Range Calendar: Un rango de dias que selecciona
+
+
+{
+    mode: "range",
+    minDate: "today",
+    dateFormat: "Y-m-d",
+    disable: [
+        function(date) {
+            return !(date.getDate() % 8);
+        }
+    ]
+}
+
+!Inline Calendar: si queremos dejar el input abierto
+
+{
+    inline: true
+}
+
+
+
+
+
+!flatpickr + external elements: si queremos agregar dos pequeños buttons
+
+
+
+{
+  altInput: true,
+  dateFormat: "YYYY-MM-DD",
+  altFormat: "DD-MM-YYYY",
+  allowInput: true,
+  parseDate: (datestr, format) => {
+    return moment(datestr, format, true).toDate();
+  },
+  formatDate: (date, format, locale) => {
+    return moment(date).format(format);
+  }
+}
+
+
+!flatpickr + external elements: si queremos agregar dos pequeños buttons
+
+
+
+<div class="flatpickr">
+    <input type="text" placeholder="Select Date.." data-input> 
+
+    <a class="input-button" title="toggle" data-toggle>
+        <i class="icon-calendar"></i>
+    </a>
+
+    <a class="input-button" title="clear" data-clear>
+        <i class="icon-close"></i>
+    </a>
+</div>
+{
+    wrap: true
+}
+
+
+
+
+
+
+
+
+
+
+-->
