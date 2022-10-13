@@ -1,101 +1,53 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-   <!-- <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script> -->
-
-
-
-    <title>OutsSystems</title>
-</head>
-<body> 
-   
-    <form>
-        <input class="form-control" type="datetime-local" placeholder="Seleccionar Fecha">
-    </form>    
-        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script> 
-        <script> flatpickr("input[type=datetime-local]", {}); </script>
-
-   
-</body>
-</html>
-
-
-<!--
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CALENDAR</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="calendar">
+        <div class="calendar-header">
+          <span class="month-picker" id="month-picker"> May </span>
+          <div class="year-picker" id="year-picker">
+            <span class="year-change" id="pre-year">
+              <pre><</pre>
+            </span>
+            <span id="year">2020 </span>
+            <span class="year-change" id="next-year">
+              <pre>></pre>
+            </span>
+          </div>
+        </div>
  
-!Range Calendar: Un rango de dias que selecciona
-
-
-{
-    mode: "range",
-    minDate: "today",
-    dateFormat: "Y-m-d",
-    disable: [
-        function(date) {
-            return !(date.getDate() % 8);
-        }
-    ]
-}
-
-!Inline Calendar: si queremos dejar el input abierto
-
-{
-    inline: true
-}
-
-
-
-
-
-!flatpickr + external elements: si queremos agregar dos pequeños buttons
-
-
-
-{
-  altInput: true,
-  dateFormat: "YYYY-MM-DD",
-  altFormat: "DD-MM-YYYY",
-  allowInput: true,
-  parseDate: (datestr, format) => {
-    return moment(datestr, format, true).toDate();
-  },
-  formatDate: (date, format, locale) => {
-    return moment(date).format(format);
-  }
-}
-
-
-!flatpickr + external elements: si queremos agregar dos pequeños buttons
-
-
-
-<div class="flatpickr">
-    <input type="text" placeholder="Select Date.." data-input> 
-
-    <a class="input-button" title="toggle" data-toggle>
-        <i class="icon-calendar"></i>
-    </a>
-
-    <a class="input-button" title="clear" data-clear>
-        <i class="icon-close"></i>
-    </a>
-</div>
-{
-    wrap: true
-}
-
-
-
-
-
-
-
-
-
-
--->
+        <div class="calendar-body">
+          <div class="calendar-week-days">
+            <div>Sun</div>
+            <div>Mon</div>
+            <div>Tue</div>
+            <div>Wed</div>
+            <div>Thu</div>
+            <div>Fri</div>
+            <div>Sat</div>
+          </div>
+          <div class="calendar-days">
+          </div>
+        </div>
+        <div class="calendar-footer">
+        </div>
+        <div class="date-time-formate">
+          <div class="day-text-formate">TODAY</div>
+          <div class="date-time-value">
+            <div class="time-formate">02:51:20</div>
+            <div class="date-formate">23 - july - 2022</div>
+            <img src="ot.png" class="logo">
+          </div>
+        </div>
+        <div class="month-list"></div>
+      </div>
+    </div>
+  </body>
+</html>
